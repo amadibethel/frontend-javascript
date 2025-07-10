@@ -72,3 +72,23 @@ console.log(createEmployee('$500'));  // Director instance
 
 console.log(executeWork(createEmployee(200)));  // Getting to work
 console.log(executeWork(createEmployee(1000))); // Getting to director tasks
+
+// 9. String literal type for Subjects
+type Subjects = 'Math' | 'History';
+
+// 10. Function teachClass that returns a message based on the subject
+function teachClass(todayClass: Subjects): string {
+  switch (todayClass) {
+    case 'Math':
+      return 'Teaching Math';
+    case 'History':
+      return 'Teaching History';
+    default:
+      // This case will never be reached, but TypeScript requires a default return
+      throw new Error('Unknown subject');
+  }
+}
+
+// Example usage:
+console.log(teachClass('Math'));    // Output: Teaching Math
+console.log(teachClass('History')); // Output: Teaching History
