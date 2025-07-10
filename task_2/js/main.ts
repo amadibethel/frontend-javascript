@@ -42,7 +42,7 @@ class Teacher implements TeacherInterface {
   }
 }
 
-// 5. Function to create an employee
+// 5. Function to create an employee based on salary
 function createEmployee(salary: number | string): Director | Teacher {
   if (typeof salary === 'number' && salary < 500) {
     return new Teacher();
@@ -51,7 +51,24 @@ function createEmployee(salary: number | string): Director | Teacher {
   }
 }
 
-// 6. Test outputs
-console.log(createEmployee(200));     // Should log Teacher instance
-console.log(createEmployee(1000));    // Should log Director instance
-console.log(createEmployee('$500'));  // Should log Director instance
+// 6. Type predicate function to check if employee is Director
+function isDirector(employee: Director | Teacher): employee is Director {
+  return (employee as Director).workDirectorTasks !== undefined;
+}
+
+// 7. Function to execute work depending on employee type
+function executeWork(employee: Director | Teacher): string {
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  } else {
+    return (employee as Teacher).workTeacherTasks();
+  }
+}
+
+// 8. Test outputs
+console.log(createEmployee(200));     // Teacher instance
+console.log(createEmployee(1000));    // Director instance
+console.log(createEmployee('$500'));  // Director instance
+
+console.log(executeWork(createEmployee(200)));  // Getting to work
+console.log(executeWork(createEmployee(1000))); // Getting to director tasks
