@@ -1,54 +1,45 @@
-// Task 1: Teacher Interface
-
+// 1. Teacher Interface
 interface Teacher {
   readonly firstName: string;
   readonly lastName: string;
   fullTimeEmployee: boolean;
   yearsOfExperience?: number;
   location: string;
-  [key: string]: any; // allows additional properties
+  [propName: string]: any;
 }
 
-// Example usage of Teacher
-
-const teacher3: Teacher = {
+const teacher1: Teacher = {
   firstName: 'John',
   lastName: 'Doe',
-  fullTimeEmployee: false,
+  fullTimeEmployee: true,
   location: 'London',
   contract: false,
 };
 
-console.log(teacher3);
+console.log(teacher1);
 
-// Task 2: Directors Interface
-
+// 2. Directors Interface extending Teacher
 interface Directors extends Teacher {
   numberOfReports: number;
 }
 
-// Example usage of Directors
-
 const director1: Directors = {
-  firstName: 'John',
-  lastName: 'Doe',
-  location: 'London',
+  firstName: 'Jane',
+  lastName: 'Smith',
+  location: 'Paris',
   fullTimeEmployee: true,
   numberOfReports: 17,
 };
 
 console.log(director1);
 
-// Task 3: printTeacher function + interface
-
+// 3. printTeacher function and interface
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
 const printTeacher: printTeacherFunction = (firstName, lastName) => {
-  return `${firstName[0]}. ${lastName}`;
+  return `${firstName.charAt(0)}. ${lastName}`;
 };
 
-// Example usage of printTeacher
-
-console.log(printTeacher("John", "Doe")); // J. Doe
+console.log(printTeacher("John", "Doe")); // Output: J. Doe
