@@ -1,0 +1,16 @@
+{
+  "name": "student-interface-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/main.ts",
+  "scripts": {
+    "start": "webpack --watch",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4",
+    "ts-loader": "^9.4.4",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
