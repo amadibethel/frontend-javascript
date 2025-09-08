@@ -1,4 +1,5 @@
 // 1. Teacher Interface
+
 interface Teacher {
   readonly firstName: string;
   readonly lastName: string;
@@ -19,6 +20,7 @@ const teacher1: Teacher = {
 console.log('Teacher:', teacher1);
 
 // 2. Directors Interface extending Teacher
+
 interface Directors extends Teacher {
   numberOfReports: number;
 }
@@ -34,6 +36,7 @@ const director1: Directors = {
 console.log('Director:', director1);
 
 // 3. printTeacher function and interface
+
 interface PrintTeacherFunction {
   (firstName: string, lastName: string): string;
 }
@@ -44,6 +47,7 @@ const printTeacher: PrintTeacherFunction = (firstName, lastName) =>
 console.log('Printed Teacher:', printTeacher('John', 'Doe')); // Output: J. Doe
 
 // 4. StudentClass constructor and class interfaces
+
 interface StudentConstructor {
   firstName: string;
   lastName: string;
@@ -55,6 +59,7 @@ interface StudentClassInterface {
 }
 
 // 5. StudentClass implementation
+
 class StudentClass implements StudentClassInterface {
   private firstName: string;
   private lastName: string;
