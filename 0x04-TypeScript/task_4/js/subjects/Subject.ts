@@ -3,7 +3,7 @@ namespace Subjects {
     teacher!: Teacher;
 
     setTeacher(teacher: Teacher) {
-      this.teacher = teacher;
+      this.teacher = Teacher;
     }
   }
 }
