@@ -1,8 +1,9 @@
-import { Teacher } from './Teacher';
+namespace Subjects {
+  export class Subject {
+    teacher!: Teacher;
 
-export abstract class Subject {
-  teacher!: Teacher; // definite assignment assertion
-
-  abstract getRequirements(): string;
-  abstract getAvailableTeacher(): string;
+    setTeacher(teacher: Teacher) {
+      this.teacher = teacher;
+    }
+  }
 }
